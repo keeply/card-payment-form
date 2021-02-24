@@ -1,0 +1,237 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #fdb827;
+  color: black;
+  font-size: 18px;
+  font-family: "Gill Sans", sans-serif;
+  height: 100%;
+  margin: 0;
+  width: 100%;
+}
+
+input {
+  display:block;
+  padding: 5px;
+  margin: 0 0 3px 10px;
+}
+
+input:invalid:required {
+  border: 1.5px solid red;
+}
+
+label {
+  display: block;
+  margin: 0 0 5px 10px;
+  font-size: 90%;
+}
+
+select {
+    color: black; 
+    font-size: 1rem;
+    padding: 4px 2px 4px 0;
+    margin: 2px 6px 5px 0;
+}
+
+.container {
+  width: 100%;
+  min-width: 226px;
+  height: auto !important;
+  display: grid;
+  grid-template-columns: 1fr 120px 120px 120px 120px 1fr;
+  grid-template-rows: 1fr 80px 80px 80px 80px 1fr;
+}
+
+.header {
+  grid-row-start: 1;
+  grid-column: 1 / span 6;
+  padding: 30px 0 30px 0;
+  align-self: center;
+  justify-self: center;
+}
+
+.card {
+  background-color: #01a9b4;
+  box-shadow: 0 0 8px black;
+  border: none;
+  border-radius: 10px;
+  color: black;
+}
+
+/* стили для фронтальной части карты */
+.front {
+  width: 100%;
+  z-index: 2;
+  grid-row: 2 / span 3;
+  grid-column: 2 / span 3;
+  display: grid;
+  grid-template-columns: 120px 120px 120px;
+  grid-template-rows: 80px 80px 80px;
+}
+
+.pay-system {
+  grid-column: 3 / span 1;
+  grid-row: 1 / span 1;
+  display:flex;
+  align-items: center; 
+  justify-content: center;
+  margin: 0 0 30px 0;
+}
+
+#img-pay-sys {
+  width: 50px;
+  height: 30px;
+}
+
+.card-number {
+  grid-column: 1 / span 3;
+  grid-row: 2 / span 1;
+  align-self: center;
+}
+
+.card-holder {
+  grid-column: 1 / span 2;
+  grid-row: 3 / span 1;
+  align-self: center;
+}
+
+#cardNum {
+  width: 90%;
+}
+
+#name {
+  width: 90%;
+}
+
+.expiry {
+  grid-column: 3 / span 1;
+  grid-row: 3 / span 1;
+  align-self: center;
+  justify-self: start;
+}
+
+#exLabel {
+  margin-left: 0;
+}
+
+#exMM, #exYY {
+  width: 41%;
+}
+
+/* стили для обратной части карты */
+.back {
+  width: 100%;
+  z-index: 1;
+  grid-row: 3 / span 3;
+  grid-column: 3 / span 3;
+  display: grid;
+  grid-template-columns: 120px 120px 120px;
+  grid-template-rows: 80px 80px 80px;
+}
+
+.cvv {
+  grid-row: 2 / span 1;
+  grid-column: 3 / span 1;
+  align-self: end;
+  justify-self: start;
+}
+
+#cvv {
+  width: 50%;
+}
+
+/* стили кнопки оплаты */
+.submitForm {
+  grid-row-start: 6 / span 1;
+  grid-column: 2 / span 4;
+  align-self: center;
+  justify-self: center;
+}
+
+#pay-button {
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  padding: 10px 40px 10px 40px;
+  width: 150px;
+  box-shadow: 0 0 8px black;
+  border: none;
+  border-radius: 10px;
+}
+
+
+
+/* стили для мобильных устройств*/
+
+@media (max-width: 500px) { 
+  
+  h1 { 
+    font-size: 26px;
+    margin: 20px;
+    text-align: center;
+    word-wrap: break-word;
+  }
+  
+  .card {
+     font-size: 20px;
+      }
+  
+  .container {
+  grid-template-columns: 20px repeat(3, 1fr) 20px;
+  grid-template-rows: 1fr repeat(4, 80px) 1fr;
+}
+
+  .front {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+  .expiry {
+  grid-column: 1 / span 3;
+  grid-row: 4 / span 1;
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start; 
+}
+  
+  .back {
+  grid-row: 4 / span 2;
+  grid-column: 2 / span 3;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+  
+  .cvv {
+  grid-row: 2 / span 1;
+  margin: 0 10px 5px 0;
+} 
+  
+  #cardNum {
+  width: 90%;
+}
+  
+  #name {
+  width: 90%;
+}
+
+  #exMM, #exYY {
+  font-size: 14px;
+  color: grey;
+  width: 20%;
+  height: 20%;
+  margin: 0 10px 10px 10px;
+}
+
+  #exLabel {
+  white-space: nowrap;
+  margin-left: 10px;
+}  
+  
+}

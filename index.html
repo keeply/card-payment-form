@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Card Payment Form</title>
+  <meta name="viewport" content=" initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+  <h1>Card payment form</h1>
+  </div> 
+  
+  <div class="submitForm">
+    <input id="pay-button" type="button" value="Pay" onclick="checkForm()" >
+  </div>
+    
+  <div class="card front">
+    
+    <div class="pay-system" id="pay-sys">
+      <img id="img-pay-sys" >
+    </div>
+    
+    <div class="card-number">
+    <label name="cardNumLabel" for="cardNumber">Card Number</label>
+    <input type="text" id="cardNum" name="cardNumber" onkeyup="this.value=this.value.replace(/[^\d]/g, '').match(/.{1,4}/g);this.value =  this.value.replace(/,/g, ' '); checkPaySystem();" pattern="/[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}/"  maxlength="19" placeholder="XXXX XXXX XXXX XXXX">
+    </div>
+    
+    <div class="card-holder">
+    <label for="Name">Full Name</label>
+    <input type="text" id="name" name="Name" onkeyup="this.value=this.value.replace(/[^a-z\s]+/ig, '');this.value = this.value.toUpperCase();" placeholder="JAMES BOND" pattern="^[a-zA-Z\s]+$">
+    </div>
+    
+    <div class="expiry">
+      <label for="exMM" id="exLabel">Expiry date</label>
+      <select onchange="validate()" name="exMM" id="exMM" required>
+    <option value="expirationMonth" disabled selected>M</option>
+    <option value="01">01</option>
+    <option value="02">02</option>
+    <option value="03">03</option>
+    <option value="04">04</option>
+    <option value="05">05</option>
+    <option value="06">06</option>
+    <option value="07">07</option>
+    <option value="08">08</option>
+    <option value="09">09</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    </select>
+    <select onchange="validate()" name="exYY" id="exYY" required>
+    <option value="expirationYear" disabled selected>Y</option>
+    <option value="21">21</option>
+    <option value="22">22</option>
+    <option value="23">23</option>
+    <option value="24">24</option>
+    <option value="25">25</option>
+    <option value="26">26</option>
+    <option value="27">27</option>
+    <option value="28">28</option>
+    <option value="29">29</option>
+    <option value="30">30</option>
+    <option value="31">31</option>
+    </select>
+    </div>
+    
+  </div>
+  
+  <div class="card back">
+    <div class="cvv">
+    <label for="CVV">CVV/CVC</label>
+    <input type="password" id="cvv" name="CVV" onkeyup="this.value = this.value.replace(/[^\d]/g, '');"  placeholder="007" pattern="[0-9]{3}" minlength="3" maxlength="3"></div></div></div>
+    
+  </body>       
+  </html>                                                                        
